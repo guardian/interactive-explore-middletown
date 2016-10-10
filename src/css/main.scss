@@ -118,7 +118,6 @@ $gBright: #4BC6DF;
 			}
 		}
 		&__intro {
-			padding-bottom: 14px;
 			p {
 				margin: 0;
 				padding-bottom: 9px;
@@ -158,14 +157,36 @@ $gBright: #4BC6DF;
 			background-color: #005689;
 			font-size: 25px;
 			line-height: 26px;
+			margin-bottom: 12px;
+			padding-bottom: 12px;
 			color: #f6f6f6;
 			font-weight: 700;
 			font-family: "Guardian Egyptian Web", Georgia, serif;
 			padding-top: 5px;
 			position: relative;
+			overflow: hidden;
 			span {
 				position: relative;
 				z-index: 110;
+			}
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				left: -20%;
+				right: -20%;
+				z-index: 109;
+				bottom: 0;
+				height: 12px;
+				background-color: #fff;
+				transform-origin: top left;
+				transform: translateY(100%) rotate(-1deg);
+				@include mq(mobileLandscape) {
+					transform: translateY(100%) rotate(-0.7deg);
+				}
+				@include mq(tablet) {
+					transform: translateY(100%) rotate(-0.4deg);
+				}
 			}
 		}
 		&__video {
@@ -173,7 +194,6 @@ $gBright: #4BC6DF;
 			width: 100%;
 			padding-bottom: 52.5%;
 			position: relative;
-			margin-bottom: 12px;
 			overflow: hidden;
 			&:before,
 			&:after {
@@ -188,14 +208,14 @@ $gBright: #4BC6DF;
 			&:before {
 				top: 0;
 				height: 25px;
-				background-color: #005690;
+				background-color: #4BC6DF;
 				transform-origin: bottom right;
 				transform: translateY(-100%) rotate(-1.2deg);
 			}
 			&:after {
 				bottom: 0;
 				height: 25px;
-				background-color: #fff;
+				background-color: #005689;
 				transform-origin: top right;
 				transform: translateY(100%) rotate(1.2deg);
 			}
