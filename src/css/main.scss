@@ -93,10 +93,20 @@ $gBright: #4BC6DF;
 			height: 61px;
 			position: relative;
 			margin-bottom: 1em;
+			margin-left: 0;
+			margin-right: 20rem;
+
 			@include mq(tablet) {
 				width: 302px;
 				height: 76px;
 			}
+			@include mq(leftCol){
+				margin-left: 10rem;
+			}
+			@include mq(wide){
+				margin-left: 15rem;
+			}
+
 			svg {
 				position: absolute;
 				top: 0;
@@ -177,14 +187,14 @@ $gBright: #4BC6DF;
 			}
 			&:before {
 				top: 0;
-				height: 20px;
+				height: 25px;
 				background-color: #005690;
 				transform-origin: bottom right;
 				transform: translateY(-100%) rotate(-1.2deg);
 			}
 			&:after {
 				bottom: 0;
-				height: 20px;
+				height: 25px;
 				background-color: #fff;
 				transform-origin: top right;
 				transform: translateY(100%) rotate(1.2deg);
@@ -317,4 +327,8 @@ $gBright: #4BC6DF;
 			}
 		}
 	}
+}
+
+.content__head{
+	display: none;
 }

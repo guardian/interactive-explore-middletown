@@ -799,11 +799,19 @@ a {
     width: 242px;
     height: 61px;
     position: relative;
-    margin-bottom: 1em; }
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 20rem; }
     @media (min-width: 46.25em) {
       #g-explore-middletown .middletown__logo {
         width: 302px;
         height: 76px; } }
+    @media (min-width: 71.25em) {
+      #g-explore-middletown .middletown__logo {
+        margin-left: 10rem; } }
+    @media (min-width: 81.25em) {
+      #g-explore-middletown .middletown__logo {
+        margin-left: 15rem; } }
     #g-explore-middletown .middletown__logo svg {
       position: absolute;
       top: 0;
@@ -873,13 +881,13 @@ a {
     transition: all 500ms; }
   #g-explore-middletown .what__video:before {
     top: 0;
-    height: 20px;
+    height: 25px;
     background-color: #005690;
     transform-origin: bottom right;
     transform: translateY(-100%) rotate(-1.2deg); }
   #g-explore-middletown .what__video:after {
     bottom: 0;
-    height: 20px;
+    height: 25px;
     background-color: #fff;
     transform-origin: top right;
     transform: translateY(100%) rotate(1.2deg); }
@@ -988,5 +996,8 @@ a {
       background-color: #005689;
       border: 1px solid #005689;
       color: #f6f6f6; }
+
+.content__head {
+  display: none; }
 
 /*# sourceMappingURL=main.css.map */
