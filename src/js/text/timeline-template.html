@@ -1,0 +1,13 @@
+<ul>
+  {{reverse Sheet1}}
+  {{#each Sheet1}}
+    {{#if Part}}{{#if Link}}
+      <li class="latest__part">
+        <a target="_top" href= "{{Link}}">
+          <img src="{{Image}}">
+        </a>
+        <a target="_top" href= "{{Link}}" class='h5'><span class="part">Part {{Part}} </span><span class="divide">/ </span>The view from Middletown: {{Headline}}</a>
+      </li>
+    {{/if}}{{/if}}
+  {{/each}}
+</ul>

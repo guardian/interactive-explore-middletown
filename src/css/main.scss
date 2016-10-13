@@ -306,7 +306,9 @@ li{
 			@include mq(tablet) {
 				width: 620px;
 			}
-			h5 {
+			h5,
+			.h5 {
+				display: block;
 				font-size: 25px;
 				line-height: 26px;
 				margin-top: 26px;
@@ -405,10 +407,11 @@ li{
 li.latest__part{
 	border-bottom: 1px solid #ececec;
 
-	h5{
+	h5,
+	.h5{
 		margin-top: 12px !important;
 		padding-bottom: 20px;
-		margin-left: 12px;
+		// margin-left: 12px;
 
 		&:after {
 			content: '';

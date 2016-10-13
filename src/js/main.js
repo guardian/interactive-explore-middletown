@@ -1,26 +1,23 @@
 import reqwest from 'reqwest'
 import mainHTML from './text/main.html!text'
 // import share from './lib/share'
-// import template from './text/template.html!text'
 import handlebars from 'handlebars'
+import timelineTemplate from './text/timeline-template.html!text'
 
-// var shareFn = share('Interactive title', 'http://gu.com/p/URL', '#Interactive');
 var el;
-var data;
 
 export function init(dom, context, config, mediator) {
   el = dom;
   el.innerHTML = mainHTML.replace(/%assetPath%/g, config.assetPath);
 
-  var data;
+
   var url = "https://interactive.guim.co.uk/docsdata-test/1jct3UKEcoJjKk1TQcYYt-3pidDHaMJiF3LIgPCvspSE.json";
   reqwest({
       url: url,
       type: 'json',
       crossOrigin: true,
       success: function(resp) {
-          data = resp;
-          console.log(data);
+        templateInit(config, resp)
       }
   });
 
@@ -50,3 +47,24 @@ function getParameterByName(name) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
+
+function templateInit(config, data) {
+
+
+  console.log(data.sheets.Sheet1)
+
+  // Rest of page
+  var mainTemplate = Handlebars.compile(timelineTemplate);
+  var mainTemplateParsed = mainTemplate(data.sheets).replace(/%assetPath%/g, config.assetPath);
+
+  el.querySelector('#latest-from-muncie').innerHTML = mainTemplateParsed;
+
+};
+
+Handlebars.registerHelper("inc", function(value, options){
+  return parseInt(value) + 1;
+});
+
+Handlebars.registerHelper('reverse', function (arr) {
+    arr.reverse();
+});
