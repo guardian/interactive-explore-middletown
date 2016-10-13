@@ -17,6 +17,18 @@ $gMain: #005689;
 $gDark: #00456E;
 $gBright: #4BC6DF;
 
+ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+li{
+	list-style: none;;
+	margin: 0;
+	padding: 0;
+}
+
 // regular page overrides
 #header {
 	display: none;
@@ -390,34 +402,52 @@ $gBright: #4BC6DF;
 	display: none !important;
 }
 
-h5.latest__part{
-	margin-top: -60px !important;
-	color: white !important;
-	margin-left: 12px !important;
+li.latest__part{
+	border-bottom: 1px solid #ececec;
 
-	@include mq($until: mobileLandscape) {
-		margin-top: auto !important;
-		color: inherit !important;
-		margin-left: inherit !important;
+	h5{
+		margin-top: 12px !important;
+		padding-bottom: 20px;
+		margin-left: 12px;
+
+		&:after {
+			content: '';
+			display: inline-block;
+			vertical-align: top;
+			position: relative;
+			bottom: 4px;
+			background-size: 29px 29px;
+			width: 29px;
+			height: 29px;
+			margin-left: 5px;
+			background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%2223%22%20height%3D%2223%22%20viewBox%3D%22398%20209%2023%2023%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20fill%3D%22%234BC6DF%22%20fill-rule%3D%22evenodd%22%20cx%3D%22409.5%22%20cy%3D%22220.5%22%20r%3D%2211.5%22%2F%3E%3Cpath%20stroke%3D%22%23F6F6F6%22%20stroke-width%3D%22.5%22%20fill%3D%22%23F6F6F6%22%20fill-rule%3D%22evenodd%22%20d%3D%22M403.5%20221.05h9.97l-3.9%204.92.5.53%205.43-5.73v-.54l-5.43-5.73-.5.53%203.9%204.92h-9.97z%22%2F%3E%3C%2Fsvg%3E');
+			transform: scale(0.9);
+			transition: all 300ms;
+			margin-top: 4px;
+		}
 	}
 
-	&:after {
-		content: '';
-		display: inline-block;
-		vertical-align: top;
-		position: relative;
-		bottom: 4px;
-		background-size: 29px 29px;
-		width: 29px;
-		height: 29px;
-		margin-left: 5px;
-		background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%2223%22%20height%3D%2223%22%20viewBox%3D%22398%20209%2023%2023%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20fill%3D%22%234BC6DF%22%20fill-rule%3D%22evenodd%22%20cx%3D%22409.5%22%20cy%3D%22220.5%22%20r%3D%2211.5%22%2F%3E%3Cpath%20stroke%3D%22%23F6F6F6%22%20stroke-width%3D%22.5%22%20fill%3D%22%23F6F6F6%22%20fill-rule%3D%22evenodd%22%20d%3D%22M403.5%20221.05h9.97l-3.9%204.92.5.53%205.43-5.73v-.54l-5.43-5.73-.5.53%203.9%204.92h-9.97z%22%2F%3E%3C%2Fsvg%3E');
-		transform: scale(0.9);
-		transition: all 300ms;
+	&:first-child{
+		img{
+			display: block !important;
+		}
+		h5:not(.title){
+			margin-top: -60px !important;
+			color: white !important;
+			margin-left: 12px !important;
+			padding-bottom: 0;
+
+			@include mq($until: mobileLandscape) {
+				margin-top: auto !important;
+				color: inherit !important;
+				margin-left: inherit !important;
+			}
+		}
 	}
 }
 
-img.latest__part{
+img{
 	width: 100%;
 	height: auto;
+	display: none !important;
 }
