@@ -1,8 +1,8 @@
-// import reqwest from 'reqwest'
+import reqwest from 'reqwest'
 import mainHTML from './text/main.html!text'
 // import share from './lib/share'
 // import template from './text/template.html!text'
-// import handlebars from 'handlebars'
+import handlebars from 'handlebars'
 
 // var shareFn = share('Interactive title', 'http://gu.com/p/URL', '#Interactive');
 var el;
@@ -12,6 +12,17 @@ export function init(dom, context, config, mediator) {
   el = dom;
   el.innerHTML = mainHTML.replace(/%assetPath%/g, config.assetPath);
 
+  var data;
+  var url = "https://interactive.guim.co.uk/docsdata-test/1jct3UKEcoJjKk1TQcYYt-3pidDHaMJiF3LIgPCvspSE.json";
+  reqwest({
+      url: url,
+      type: 'json',
+      crossOrigin: true,
+      success: function(resp) {
+          data = resp;
+          console.log(data);
+      }
+  });
 
   // play video on click
   document.querySelector('.what__video .cover').onclick = function() {
@@ -26,8 +37,6 @@ export function init(dom, context, config, mediator) {
   } else {
     middletown.setAttribute('data-component', 'middletown series page : separate page');
   }
-
-
 
 }
 
